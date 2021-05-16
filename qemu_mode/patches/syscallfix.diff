@@ -1,6 +1,6 @@
 diff --color -ru qemu-2.10.0-rc3-clean/linux-user/syscall.c qemu-2.10.0-rc3/linux-user/syscall.c
 --- qemu-2.10.0-rc3-clean/linux-user/syscall.c	2021-05-16 19:23:27.863946280 -0400
-+++ qemu-2.10.0-rc3/linux-user/syscall.c	2021-05-16 19:22:31.231387512 -0400
++++ qemu-2.10.0-rc3/linux-user/syscall.c	2021-05-16 19:48:09.503951980 -0400
 @@ -41,6 +41,7 @@
               size_t stack_size, int flags, void *arg, ...);
  #endif
@@ -9,3 +9,13 @@ diff --color -ru qemu-2.10.0-rc3-clean/linux-user/syscall.c qemu-2.10.0-rc3/linu
  #include <sys/un.h>
  #include <sys/uio.h>
  #include <poll.h>
+@@ -256,7 +257,8 @@
+ #endif
+ 
+ #ifdef __NR_gettid
+-_syscall0(int, gettid)
++// We have now included linux/sockios.h
++// _syscall0(int, gettid)
+ #else
+ /* This is a replacement for the host gettid() and must return a host
+    errno. */
