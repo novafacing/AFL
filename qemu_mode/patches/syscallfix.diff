@@ -1,0 +1,11 @@
+diff --color -ru qemu-2.10.0-rc3-clean/linux-user/syscall.c qemu-2.10.0-rc3/linux-user/syscall.c
+--- qemu-2.10.0-rc3-clean/linux-user/syscall.c	2021-05-16 19:23:27.863946280 -0400
++++ qemu-2.10.0-rc3/linux-user/syscall.c	2021-05-16 19:22:31.231387512 -0400
+@@ -41,6 +41,7 @@
+              size_t stack_size, int flags, void *arg, ...);
+ #endif
+ #include <sys/socket.h>
++#include <linux/sockios.h>
+ #include <sys/un.h>
+ #include <sys/uio.h>
+ #include <poll.h>
